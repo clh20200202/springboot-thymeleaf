@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--这句声明使用thymeleaf标签-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf的入门</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!--
+输出hello数据
+这句使用 th:text="${变量名}" 表示 使用thymeleaf获取文本数据，类似于EL表达式。
+thymeleaf：都是作用于HTML标签之上
+-->
+<p th:text="${hello}"></p>
+
+
+<form id="login-form" th:action="@{/demo}" method="post">
+    <button>提交</button>
+</form>
+
+
+<table border="1" >
+    <tr>
+        <td>下标</td>
+        <td>用户名</td>
+        <td>地址</td>
+    </tr>
+    <tr th:each="user,status:${users}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.address}"></td>
+    </tr>
+</table>
+
+<div>
+    map集合<span th:text="${dataMap.No}"></span>
+    <span th:text="${dataMap.address}"></span>
+</div>
+
+<div>
+    map集合取key与值
+    <span th:each="entry:${dataMap}">
+        map集合取key<p th:text="${entry.key}">
+       map集合取 值<p th:text="${entry.value}"></p>
+    </span>
+</div>
+
+<div th:each="nm,nmStat:${names}">
+    <span th:text="${nmStat.count}"></span><span th:text="${nm}"></span>
+    ==============================================
+</div>
+
+
+<span th:text="${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}"></span>
+
+<!--
+if:th：unless表示条件不成立 ，输出数据
+-->
+<div>
+    <span th:if="${age>=18}">终于长大了！</span>
+    <span th:unless="${age<18}">成年人</span>
+</div>
+
+
+<!--<div th:include="footer::copy"></div>-->
+
+</body>
+</html>
