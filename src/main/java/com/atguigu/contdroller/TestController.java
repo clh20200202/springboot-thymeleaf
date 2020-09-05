@@ -107,6 +107,7 @@ public class TestController {
         model.addAttribute("age",22);
 
         System.out.println("hello word");
+        System.out.println("你好");
 
         return "demo01"; //视图解析
     }
