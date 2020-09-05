@@ -108,7 +108,7 @@ public class TestController {
 
         System.out.println("hello word");
         System.out.println("你好");
-
+        System.out.println("不好");
         return "demo01"; //视图解析
     }
 }
