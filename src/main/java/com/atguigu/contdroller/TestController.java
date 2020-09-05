@@ -106,7 +106,7 @@ public class TestController {
         //if条件
         model.addAttribute("age",22);
 
-        System.out.println("nahoajljlkjkoljlk");
+        System.out.println("你好");
 
         return "demo01"; //视图解析
     }
